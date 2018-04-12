@@ -155,7 +155,8 @@ for i in range(25000):
     batch = mnist.train.next_batch(50)
     if i%100==0:
         train_accuracy = accuracy.eval(session=sess,feed_dict={x:batch[0], y: batch[1], keep_prob: 0.5})
-        if train_accuracy>=0.97
+        print (type(train_accuracy))
+        if train_accuracy>=0.97:
             print("step %d, training accuracy %g"%(i, train_accuracy))
             train_step.run(session=sess,feed_dict={x: batch[0], y: batch[1], keep_prob: 0.5})
             print ("test accuracy %g"%accuracy.eval(session=sess,feed_dict={x: mnist.test.images, y: mnist.test.labels, keep_prob: 0.5}))
